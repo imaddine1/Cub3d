@@ -1,0 +1,24 @@
+NORTH:./executer/images/salute.xpm
+SOUTH:./executer/images/Sloth.xpm
+EAST : ./executer/images/Hit.xpm
+WEAST:./executer/images/well.xpm
+F: 0 128 0 
+C: 0 255 255 
+hex f: 32768
+hex c: 65535
+direction S
+land:
+> 11111111111<
+>100000S000001<
+>1000000100001<
+>1000100000001<
+>1001000010001<
+>1000000000001<
+>1000000000001<
+>1000000000001<
+>1000100000001<
+>1001000010001<
+>1000000010001<
+>1000000000001<
+>1000000000001<
+> 11111111111<
