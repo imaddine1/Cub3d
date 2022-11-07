@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:36:00 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 18:58:31 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/07 20:59:34 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_extension(char *str)
 	new_str = ft_strrchr(str, '.');
 	if (ft_strncmp(new_str, ".cub", ft_strlen(new_str)))
 	{
-		//system("leaks cub3D");
+		system("leaks cub3D");
 		msg_exit("the extension of the file must be .cub");
 	}
 }

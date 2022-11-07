@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:40:03 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 09:26:24 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:16:38 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	land_newlines(char *s, char *main_str)
 	{
 		if (s[i] == '\n' && (s[i + 1] == ' '))
 		{
-			while (s[i] && (s[i + 1] == ' '))
-				i++;
+			// while (s[i] && (s[i + 1] == ' '))
+			// 	i++;
 			if (s[i + 1] == '\n')
 				free_and_msg(NULL, NULL, main_str,
 					"\033[0;31myour land is incorrect:continous lines\033[0;m");
@@ -47,9 +47,9 @@ void	land_surrounded_walls(char *s, char *main_str)
 		j = 0;
 		while (divide_lines[i][j] && (divide_lines[i][j] == ' '))
 			j++;
-		if (divide_lines[i][j] == '\0')
+		/*if (divide_lines[i][j] == '\0')
 			free_and_msg(divide_lines, NULL, main_str,
-				"\033[0;31mland is incorrect:check the spaces in line\033[0;m");
+				"\033[0;31mland is incorrect:check the spaces in line\033[0;m");*/
 		k = j - 1;
 		while (divide_lines[i][++k] && (i == 0 ||
 			i == ft_splen(divide_lines) - 1))

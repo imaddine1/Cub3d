@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:50:30 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/03 09:39:44 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:26:32 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ int	ft_test(int key, t_image *img)
 	if (key == 2)
 		move_right(img);
 	if (key == 53)
+	{
 		exit(0);
+	}
 	ft_init_img(img);
 	return (1);
 }

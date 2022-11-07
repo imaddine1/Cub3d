@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/07 19:15:21 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:23:25 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	free_struct2(t_image *map)
 int	main(int ac, char **av)
 {
 	int		fd;
-	t_image	*map;
+	t_info	*map;
+	t_image	*img;
 
-	map = malloc(sizeof(t_image));
 	if (ac != 2)
 		msg_exit("\033[0;32mput the map as aregement!!\033[0m;");
 	fd = open(av[1], O_RDONLY);
@@ -67,30 +67,35 @@ int	main(int ac, char **av)
 		msg_exit("\033[0;31mthis file not exist\033[0;m");
 	close (fd);
 	check_extension(av[1]);
-	map->info = NULL;
-	map->info = check_map(av[1], map->info);
+	map = NULL;
+	map = check_map(av[1], map);
 	// this for test
-	printf ("NORTH:%s\n", map->info->no);
-	printf ("SOUTH:%s\n", map->info->so);
-	printf ("EAST : %s\n", map->info->ea);
-	printf ("WEAST:%s\n", map->info->we);
+	printf ("NORTH:%s\n", map->no);
+	printf ("SOUTH:%s\n", map->so);
+	printf ("EAST : %s\n", map->ea);
+	printf ("WEAST:%s\n", map->we);
 	int j = -1;
 	printf ("F: ");
 	while (++j < 3)
-		printf ( "%d ", map->info->f[j]);
+		printf ( "%d ", map->f[j]);
 	j = -1;
 	printf ("\nC: ");
 	while (++j < 3)
-		printf ("%d ", map->info->c[j]);
-	printf ("\nhex f: %d\nhex c: %d\n", map->info->hexfloor, map->info->hexceilling);
-	printf ("direction %c\n", map->info->direction);
+		printf ("%d ", map->c[j]);
+	printf ("\nhex f: %d\nhex c: %d\n", map->hexfloor, map->hexceilling);
+	printf ("direction %c\n", map->direction);
 	j = -1;
 	printf ("land:\n");
-	while (map->info->land[++j])
-		printf (">%s<\n", map->info->land[j]);
-	execute(map);
-	free_struct(map->info);
-	free_struct2(map);
-	printf("hello\n");
+	while (map->land[++j])
+		printf (">%s<\n", map->land[j]);
+	img = malloc(sizeof(t_image));
+	if (!img)
+		return (0);
+	//img = NULL;
+	img->info = map;
+	execute(img);
+	free_struct(map);
+	free_struct2(img);
+	system ("leaks cub3D");
 	return (0);
 }

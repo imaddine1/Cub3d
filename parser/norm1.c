@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 12:46:28 by iharile           #+#    #+#             */
-/*   Updated: 2022/10/19 17:03:06 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/07 21:22:18 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	norm_walls(char **divide_lines, int i, int j, char *main_str)
 	k = ft_strlen(trim) - 1;
 	if (((trim[j] != '1' && trim[j] != ' ')
 			|| (trim[k] != '1' && trim[k] != ' '))
-		&& (i > 0 && divide_lines[i + 1] != '\0'))
+		&& (i > 0 && divide_lines[i + 1] != '\0' && k > 0))
 	{
 		free (trim);
 		free_and_msg(divide_lines, NULL, main_str,
-			"\033[0;31myour land is incorrect:check the walls3\033[0;m");
+			"\033[0;31myour land is incorrect:check the walls\033[0;m");
 	}
 	free(trim);
 }
