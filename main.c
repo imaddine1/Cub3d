@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/07 16:36:20 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/07 19:14:17 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int ac, char **av)
 	map->info = NULL;
 	map->info = check_map(av[1], map->info);
 	// this for test
+	printf("ANA 7MAAAAR\n")
 	printf ("NORTH:%s\n", map->info->no);
 	printf ("SOUTH:%s\n", map->info->so);
 	printf ("EAST : %s\n", map->info->ea);
