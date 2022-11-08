@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/07 17:21:30 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:34:10 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	draw_line(t_image *img, double beginX, double beginY, double angle)
 	pixely = beginY;
 	while (1)
 	{
-		if (/*check_ray(img, (int)(pixelx), (int)(pixely)) &&*/ wallcheck(pixelx, pixely, img))
+		if (wallcheck(pixelx, pixely, img))
 		{
 			set_walls(img, pixelx, pixely, angle);
 			img->player->where = (int)round(img->player->where
@@ -40,25 +40,25 @@ void	turnto3d(t_image *img, int j)
 {
 	int		i;
 	double	dist_projectpane;
-	int		x1;
+	int		y1;
 
 	dist_projectpane = (WIN_W / 2.0) / tan(HALF_WALL * (M_PI / 180));
 	img->player->proj_w = (WALL_DIM / img->player->wall_distance)
 		* dist_projectpane;
 	img->player->wallbegin = (WIN_H / 2) - (img->player->proj_w / 2);
 	i = ceiling_floor(img, j, 0, 0);
-	x1 = 0;
+	y1 = 0;
 	while (i < WIN_H && i < img->player->wallbegin
-		+ img->player->proj_w && x1 < i)
+		+ img->player->proj_w && y1 < i)
 	{
 		if (img->player->wall_direct == 'N')
-			pixel_fill_n(img, i, j, x1++);
+			pixel_fill_n(img, i, j, y1++);
 		else if (img->player->wall_direct == 'E')
-			pixel_fill_e(img, i, j, x1++);
+			pixel_fill_e(img, i, j, y1++);
 		else if (img->player->wall_direct == 'S')
-			pixel_fill_s(img, i, j, x1++);
+			pixel_fill_s(img, i, j, y1++);
 		else
-			pixel_fill_w(img, i, j, x1++);
+			pixel_fill_w(img, i, j, y1++);
 		i++;
 	}
 	i = ceiling_floor(img, j, i, 1);

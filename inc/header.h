@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/07 16:36:04 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/08 15:35:36 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,10 +173,10 @@ double	calculate_walldistance(t_player *ply, double angle);
 void	checkwall_n(t_info *img, t_player *ply, int i);
 void	checkwall_s(t_info *img, t_player *ply, int i);
 void	set_walls(t_image *img, double pixelX, double pixelY, double angle);
-void	pixel_fill_n(t_image *img, int i, int j, int x1);
-void	pixel_fill_e(t_image *img, int i, int j, int x1);
-void	pixel_fill_s(t_image *img, int i, int j, int x1);
-void	pixel_fill_w(t_image *img, int i, int j, int x1);
+void	pixel_fill_n(t_image *img, int i, int j, int y1);
+void	pixel_fill_e(t_image *img, int i, int j, int y1);
+void	pixel_fill_s(t_image *img, int i, int j, int y1);
+void	pixel_fill_w(t_image *img, int i, int j, int y1);
 int		ceiling_floor(t_image *img, int j, int i, int nbr);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	**ft_strdupc(char **env);

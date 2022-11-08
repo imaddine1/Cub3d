@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:47:26 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/07 18:42:48 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:17:29 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ double	calculate_walldistance(t_player *ply, double angle)
 	distance = sqrt(((ply->posx - ply->wallx)
 				* (ply->posx - ply->wallx))
 			+ ((ply->posy - ply->wally) * (ply->posy - ply->wally)));
-	//We use cos(angle - ply->rotation) to get rid of the fish eye effect
 	ca = ply->rotation - angle;
 	if (ca > (2 * M_PI))
 		ca -= (2 * M_PI);
@@ -91,16 +90,16 @@ void	set_walls(t_image *img, double pixelX, double pixelY, double angle)
 	img->player->wall_distance = calculate_walldistance(img->player, angle);
 	if (img->player->posy > img->player->wally)
 	{
-		if (img->player->posx < img->player->wallx)
+		if (img->player->posx <= img->player->wallx)
 			checkwall_n(img->info, img->player, 0);
-		else if (img->player->posx >= img->player->wallx)
+		else if (img->player->posx > img->player->wallx)
 			checkwall_n(img->info, img->player, 1);
 	}
 	else
 	{
-		if (img->player->posx <= img->player->wallx)
+		if (img->player->posx < img->player->wallx)
 			checkwall_s(img->info, img->player, 0);
-		else if (img->player->posx > img->player->wallx)
+		else if (img->player->posx >= img->player->wallx)
 			checkwall_s(img->info, img->player, 1);
 	}
 }
