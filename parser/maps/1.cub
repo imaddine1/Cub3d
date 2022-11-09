@@ -4,8 +4,11 @@ NO ./executer/images/north.xpm
 SO ./executer/images/south.xpm
 WE ./executer/images/west.xpm
 EA ./executer/images/east.xpm
+   
+    
 F 0,128,0
-
+ 
+   
  11111111111111111
 1000000100000000001
 1000000010000000001

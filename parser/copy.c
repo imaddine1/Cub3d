@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:57:42 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 20:07:21 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 13:23:05 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*copy_before_space(char *s)
 
 	i = 0;
 	size = count_until_space(s);
+	if (size == 0)
+		return (0);
 	copy = malloc(sizeof(char) * (size + 1));
 	if (!copy || (int)ft_strlen(s) == size)
 		return (NULL);
@@ -53,5 +55,10 @@ char	*copy_after_space(char *s)
 
 	start = count_until_space(s);
 	trim = ft_strtrim(&s[start + 1], " ");
+	if (ft_strlen(trim) == 0)
+	{
+		free (trim);
+		return (NULL);
+	}
 	return (trim);
 }

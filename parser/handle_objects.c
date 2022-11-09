@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:16:40 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 14:57:12 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 13:23:31 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	check_each_object(char *s, t_info *map)
 	cpy_bf_sp = copy_before_space(s);
 	cpy_af_sp = copy_after_space(s);
 	if (!cpy_bf_sp || !cpy_af_sp)
-		return (0);
+		return (free_return(NULL, cpy_bf_sp, cpy_bf_sp, 1));
 	len = (int)ft_strlen(cpy_bf_sp);
 	if (!ft_strncmp(cpy_bf_sp, "NO", len))
 		map->no = fd_texture(cpy_af_sp, cpy_bf_sp, map);
@@ -90,28 +90,32 @@ void	each_object(char **divide_lines, char *s, char *arr_object)
 {
 	char	**divide_one_line;
 	int		j;
+	char	*trim;
 
 	divide_one_line = ft_split(s, ' ');
-	j = ft_strlen(divide_one_line[0]);
-	if (!ft_strncmp(divide_one_line[0], "NO", j))
+	trim = ft_strtrim(divide_one_line[0], " ");
+	j = ft_strlen(trim);
+	if (!ft_strncmp(trim, "NO", j) && j == 2)
 		arr_object[0] += 1;
-	else if (!ft_strncmp(divide_one_line[0], "SO", j))
+	else if (!ft_strncmp(trim, "SO", j) && j == 2)
 		arr_object[1] += 1;
-	else if (!ft_strncmp(divide_one_line[0], "WE", j))
+	else if (!ft_strncmp(trim, "WE", j) && j == 2)
 		arr_object[2] += 1;
-	else if (!ft_strncmp(divide_one_line[0], "EA", j))
+	else if (!ft_strncmp(trim, "EA", j) && j == 2)
 		arr_object[3] += 1;
-	else if (!ft_strncmp(divide_one_line[0], "F", j))
+	else if (!ft_strncmp(trim, "F", j) && j == 1)
 		arr_object[4] += 1;
-	else if (!ft_strncmp(divide_one_line[0], "C", j))
+	else if (!ft_strncmp(trim, "C", j) && j == 1)
 		arr_object[5] += 1;
+	else if (!ft_strlen(trim))
+		j = 0;
 	else
-		free_and_msg(divide_lines, divide_one_line, NULL,
+		free_and_msg(divide_lines, divide_one_line, trim,
 			"\033[0;31mYou put something wierd in objects section!!\033[0m");
-	ft_free(divide_one_line);
+	free_return(divide_one_line, trim, NULL, 0);
 }
 
-void	check_objects(char *s)
+void	check_objects(char *s, int j)
 {
 	char	arr_object[6];
 	char	**divide_lines;
@@ -121,18 +125,17 @@ void	check_objects(char *s)
 	if (!*divide_lines)
 		free_and_msg(NULL, divide_lines, NULL,
 			"\033[0;34mEmpty file?? check is the correct file \033[0m");
+	while (++j < 6)
+		arr_object[j] = 0;
 	i = -1;
-	while (++i < 6)
-		arr_object[i] = 0;
-	i = -1;
-	while (++i < 6 && divide_lines[i])
+	while (++i < index_end_objects(divide_lines) && divide_lines[i])
 		each_object(divide_lines, divide_lines[i], arr_object);
-	i = -1;
-	while (++i < 6)
-		if (!arr_object[i] || arr_object[i] > 1)
+	j = -1;
+	while (++j < 6)
+		if (!arr_object[j] || arr_object[j] > 1)
 			free_and_msg(divide_lines, NULL, NULL,
 				"\033[0;31m May have duplicated or object left\033[0m");
-	if (!divide_lines[i])
+	if (!divide_lines[i] || index_end_objects(divide_lines) == -1)
 		free_and_msg(divide_lines, NULL, NULL, "\033[0;31mland not found\033[0m");
 	if (!(divide_lines[i][0] == '1' || divide_lines[i][0] == ' '))
 		free_and_msg(divide_lines, NULL, NULL,

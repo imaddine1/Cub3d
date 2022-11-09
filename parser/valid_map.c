@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 20:44:56 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 20:03:33 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:13:05 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	land_content(char *str)
 				all_things_of_land(&str[j], str);
 				return ;
 			}
+			else
+				i--;
 		}
 	}
 	free_and_msg(NULL, NULL, str, "\033[0;31mland is not found!!\033[0;m");
@@ -99,7 +101,7 @@ t_info	*check_map(char *s, t_info *map)
 	close(fd);
 	trim = ft_strtrim(str, "\n ");
 	free(str);
-	check_objects(trim);
+	check_objects(trim, -1);
 	land_content(trim);
 	map = malloc(sizeof(t_info));
 	if (!map)

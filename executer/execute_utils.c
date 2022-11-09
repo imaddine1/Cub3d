@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:50:30 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/08 11:55:54 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:34:04 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_test(int key, t_image *img)
 		move_right(img);
 	if (key == 53)
 	{
+		system("leaks cub3D");
 		exit(0);
 	}
 	ft_init_img(img);
@@ -72,6 +73,7 @@ int	ft_test(int key, t_image *img)
 
 int	exit_s(void)
 {
+	system("leaks cub3D");
 	exit(0);
 }
 
@@ -91,6 +93,7 @@ void	init_walls(t_image *map)
 		printf("ERROR! PLEASE CHECK YOUR TEXTURES\n");
 		free_struct(map->info);
 		free_struct2(map);
+		system("leaks cub3D");
 		exit (0);
 	}
 	map->image->addr_north = mlx_get_data_addr(map->wall_north,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/08 15:35:36 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/09 10:37:23 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void	take_land(char *s, t_info *map);
 void	take_objects(char *s, t_info *map);
 char	**matrixdup(char **s);
 int		check_each_object(char *s, t_info *map);
-void	check_objects(char *s);
+void	check_objects(char *s, int j);
 int		norm_floor_ceilling(char *af_sp, t_info *map, char c, char *bf_sp);
 int		floor_ceilling(char *s, t_info *map, char c);
 void	land_newlines(char *s, char *main_str);
@@ -161,6 +161,8 @@ int		hex(int *arr);
 char	*fd_texture(char *str, char *after, t_info *map);
 void	player_surrounded(char *str, char *main_str, char c);
 void	all_things_of_land(char *s, char *main_str);
+/*inside main.c: to find end of objects in map*/
+int		index_end_objects(char **divide_lines);
 //executer
 void	free_struct2(t_image *map);
 void	move_left(t_image *ply);

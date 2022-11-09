@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   taken_by_struct.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:30:48 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/07 16:31:41 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:44:04 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	take_objects(char *s, t_info *map)
 
 	divide_lines = ft_split(s, '\n');
 	i = 0;
-	while (i < 6)
+	while (i < index_end_objects(divide_lines))
 	{
 		if (!check_each_object(divide_lines[i], map))
 		{

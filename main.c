@@ -6,11 +6,31 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/07 21:23:25 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:59:40 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/header.h"
+
+int	index_end_objects(char **divide_lines)
+{
+	int		i;
+	char	*trim;
+
+	i = 0;
+	while (divide_lines[i])
+	{
+		trim = ft_strtrim(divide_lines[i], " ");
+		if (trim[0] == '1' || trim[0] == '0')
+		{
+			free (trim);
+			return (i);
+		}
+		free (trim);
+		i++;
+	}
+	return (-1);
+}
 
 void	all_things_of_land(char *s, char *main_str)
 {
@@ -58,7 +78,7 @@ int	main(int ac, char **av)
 {
 	int		fd;
 	t_info	*map;
-	t_image	*img;
+	//t_image	*img;
 
 	if (ac != 2)
 		msg_exit("\033[0;32mput the map as aregement!!\033[0m;");
@@ -88,14 +108,14 @@ int	main(int ac, char **av)
 	printf ("land:\n");
 	while (map->land[++j])
 		printf (">%s<\n", map->land[j]);
-	img = malloc(sizeof(t_image));
-	if (!img)
-		return (0);
+	//img = malloc(sizeof(t_image));
+	//if (!img)
+	//	return (0);
 	//img = NULL;
-	img->info = map;
-	execute(img);
+	//img->info = map;
+	//execute(img);
 	free_struct(map);
-	free_struct2(img);
+	//free_struct2(img);
 	system ("leaks cub3D");
 	return (0);
 }
