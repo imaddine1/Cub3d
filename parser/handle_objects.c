@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:16:40 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 13:23:31 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:32:30 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,10 @@ int	check_each_object(char *s, t_info *map)
 	int		len;
 
 	cpy_bf_sp = copy_before_space(s);
-	cpy_af_sp = copy_after_space(s);
-	if (!cpy_bf_sp || !cpy_af_sp)
-		return (free_return(NULL, cpy_bf_sp, cpy_bf_sp, 1));
+	cpy_af_sp = copy_after_space(s, cpy_bf_sp);
+	len = check_before_after(cpy_bf_sp, cpy_af_sp);
+	if (len == 0 || len == 1)
+		return (len);
 	len = (int)ft_strlen(cpy_bf_sp);
 	if (!ft_strncmp(cpy_bf_sp, "NO", len))
 		map->no = fd_texture(cpy_af_sp, cpy_bf_sp, map);
@@ -82,8 +83,7 @@ int	check_each_object(char *s, t_info *map)
 	else if (!ft_strncmp(cpy_bf_sp, "C", len)
 		&& !norm_floor_ceilling(cpy_af_sp, map, 'C', cpy_bf_sp))
 		return (0);
-	free(cpy_bf_sp);
-	return (1);
+	return (free_return(NULL, cpy_bf_sp, NULL, 1));
 }
 
 void	each_object(char **divide_lines, char *s, char *arr_object)

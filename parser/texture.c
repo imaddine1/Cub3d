@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:49:36 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/01 13:35:53 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 15:57:41 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*fd_texture(char *str, char *bf, t_info *map)
 	int		fd;
 
 	rev = ft_strrchr(str, '.');
+	//be sure is correct
 	if (ft_strncmp(rev, ".xpm", 4))
 	{
 		free (bf);

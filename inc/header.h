@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 10:37:23 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 15:11:24 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ void	land_holes(char *s, char *main_str);
 void	land_zero_invalid_place(char *s, char *main_str);
 int		check_hole(char **s, int row, int col);
 char	*copy_before_space(char *s);
-char	*copy_after_space(char *s);
+char	*copy_after_space(char *s, char *bf);
 int		count_until_space(char *s);
 int		free_return(char **db_str, char *str1, char *str2, int ret);
 int		dfs(char *s, char c);
@@ -163,6 +163,8 @@ void	player_surrounded(char *str, char *main_str, char c);
 void	all_things_of_land(char *s, char *main_str);
 /*inside main.c: to find end of objects in map*/
 int		index_end_objects(char **divide_lines);
+/*insdier handle_objects to find if some object is null*/
+int	check_before_after(char *bf, char *af);
 //executer
 void	free_struct2(t_image *map);
 void	move_left(t_image *ply);
