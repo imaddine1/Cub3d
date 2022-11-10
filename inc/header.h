@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 15:11:24 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/10 11:13:43 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	ft_free(char **s);
 int		my_atoi(char *str);
 void	take_objects(char *s, t_info *map);
 void	free_struct(t_info *map);
-void	free_and_msg(char **m1, char **m2, char *s1,  char *msg);
+void	free_and_msg(char **m1, char **m2, char *s1, char *msg);
 void	norm_walls(char **divide_lines, int i, int j, char *main_str);
 void	norm_land_numbers(char *main_str, int j);
 int		ft_splen(char **s);
@@ -164,7 +164,7 @@ void	all_things_of_land(char *s, char *main_str);
 /*inside main.c: to find end of objects in map*/
 int		index_end_objects(char **divide_lines);
 /*insdier handle_objects to find if some object is null*/
-int	check_before_after(char *bf, char *af);
+int		check_before_after(char *bf, char *af);
 //executer
 void	free_struct2(t_image *map);
 void	move_left(t_image *ply);

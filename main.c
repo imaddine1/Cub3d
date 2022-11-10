@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 17:17:03 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:04:48 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,33 +89,12 @@ int	main(int ac, char **av)
 	check_extension(av[1]);
 	map = NULL;
 	map = check_map(av[1], map);
-	// this for test
-	printf ("NORTH:%s\n", map->no);
-	printf ("SOUTH:%s\n", map->so);
-	printf ("EAST : %s\n", map->ea);
-	printf ("WEAST:%s\n", map->we);
-	int j = -1;
-	printf ("F: ");
-	while (++j < 3)
-		printf ( "%d ", map->f[j]);
-	j = -1;
-	printf ("\nC: ");
-	while (++j < 3)
-		printf ("%d ", map->c[j]);
-	printf ("\nhex f: %d\nhex c: %d\n", map->hexfloor, map->hexceilling);
-	printf ("direction %c\n", map->direction);
-	j = -1;
-	printf ("land:\n");
-	while (map->land[++j])
-		printf (">%s<\n", map->land[j]);
 	img = malloc(sizeof(t_image));
 	if (!img)
 		return (0);
-	//img = NULL;
 	img->info = map;
 	execute(img);
 	free_struct(map);
 	free_struct2(img);
-	system ("leaks cub3D");
 	return (0);
 }

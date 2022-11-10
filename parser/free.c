@@ -6,7 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 22:43:15 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 17:01:52 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/10 11:05:42 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	msg_exit(char *str)
 {
 	printf("%s\n", str);
-	system("leaks cub3D");
 	exit(0);
 }
 
@@ -28,7 +27,6 @@ void	free_and_msg(char **m1, char **m2, char *s1, char *msg)
 	if (s1)
 		free (s1);
 	printf ("%s\n", msg);
-	system("leaks cub3D");
 	exit(0);
 }
 
