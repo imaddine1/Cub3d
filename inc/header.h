@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/10 12:53:31 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:53:33 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@
 # include <sys/uio.h>
 # include <math.h>
 # include <mlx.h>
-
-/* Parser
-	✅ use this function when you finish to deallocate struct 
-	✅ handle tabs return error if found
-	❌ zero in wall in last row then spaces
-	❌ i take \n in land when i do spaces then \n then land
-*/
-/* Execution
-	❌ check the path is xpm in function of minilibx
-	❌ don't hesitate to check images with spaces && without .xpm
-	❌ check the path is file or directory
-	❌ check texture is empty or not
-*/
-
 # define FIELD_OF_VIEW 60;
 # define PLAYER_HEIGHT 32;
 # define WIN_H 1080.0
