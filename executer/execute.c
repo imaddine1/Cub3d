@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/10 09:36:17 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:50:16 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int	draw_line(t_image *img, double beginX, double beginY, double angle)
 		if (wallcheck(pixelx, pixely, img))
 		{
 			set_walls(img, pixelx, pixely, angle);
-			img->player->where = (int)round(img->player->where
-					* (2000.0 / WALL_DIM)) % 2000;
 			break ;
 		}
 		pixelx += img->player->stepx;

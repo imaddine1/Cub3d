@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 10:47:17 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/07 16:41:33 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:41:30 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	move_front(t_image *ply)
 	double	coordx;
 	double	coordy;
 
-	posx = cos(ply->player->rotation) * 15;
-	posy = sin(ply->player->rotation) * 15;
+	posx = cos(ply->player->rotation) * 18;
+	posy = sin(ply->player->rotation) * 18;
 	coordy = (ply->player->posy + posy);
 	coordx = (ply->player->posx + posx);
 	if (!wallcheck(coordx, coordy, ply) && !check_line(ply,
@@ -66,8 +66,8 @@ void	move_back(t_image *ply)
 	double	coordx;
 	double	coordy;
 
-	posx = cos(ply->player->rotation) * 15;
-	posy = sin(ply->player->rotation) * 15;
+	posx = cos(ply->player->rotation) * 18;
+	posy = sin(ply->player->rotation) * 18;
 	coordy = (ply->player->posy - posy);
 	coordx = (ply->player->posx - posx);
 	if (!wallcheck(coordx, coordy, ply) && !check_line(ply,
@@ -91,8 +91,8 @@ void	move_right(t_image *ply)
 	rotation = ply->player->rotation + (3 * M_PI) / 2;
 	if (rotation < 0)
 		rotation += (2 * M_PI);
-	posx = cos(rotation) * 15;
-	posy = sin(rotation) * 15;
+	posx = cos(rotation) * 18;
+	posy = sin(rotation) * 18;
 	coordy = (ply->player->posy - posy);
 	coordx = (ply->player->posx - posx);
 	if (!wallcheck(coordx, coordy, ply) && !check_line(ply,
@@ -116,8 +116,8 @@ void	move_left(t_image *ply)
 	rotation = ply->player->rotation + (3 * M_PI) / 2;
 	if (rotation < 0)
 		rotation += (2 * M_PI);
-	posx = cos(rotation) * 15;
-	posy = sin(rotation) * 15;
+	posx = cos(rotation) * 18;
+	posy = sin(rotation) * 18;
 	coordy = (ply->player->posy + posy);
 	coordx = (ply->player->posx + posx);
 	if (!wallcheck(coordx, coordy, ply) && !check_line(ply,

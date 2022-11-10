@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/10 11:13:43 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:53:31 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,25 +102,33 @@ typedef struct s_data {
 
 typedef struct s_image
 {
-	void		*mlx;
-	void		*win;
-	int			x;
-	int			y;
-	int			row;
-	int			col;
-	void		*wall_north;
-	void		*wall_south;
-	void		*wall_east;
-	void		*wall_west;
-	char		*addr_space;
-	char		*addr_player;
-	int			bits_pixel;
-	int			endian;
-	int			l;
-	t_player	*player;
-	t_info		*info;
-	t_data		*image;
-	char		**map;
+	void			*mlx;
+	void			*win;
+	int				x;
+	int				y;
+	int				row;
+	int				col;
+	void			*wall_north;
+	void			*wall_south;
+	void			*wall_east;
+	void			*wall_west;
+	char			*addr_space;
+	char			*addr_player;
+	int				bits_pixel;
+	int				endian;
+	int				l;
+	int				h_n;
+	int				w_n;
+	int				h_s;
+	int				w_s;
+	int				h_w;
+	int				w_w;
+	int				h_e;
+	int				w_e;
+	t_player		*player;
+	t_info			*info;
+	t_data			*image;
+	char			**map;
 }	t_image;
 // parser
 int		ft_splen(char **s);
@@ -174,8 +182,8 @@ void	move_front(t_image *ply);
 void	check_rotation(t_info *map, t_player *player);
 int		check_ray(t_image *img, int pixelX, int pixelY);
 double	calculate_walldistance(t_player *ply, double angle);
-void	checkwall_n(t_info *img, t_player *ply, int i);
-void	checkwall_s(t_info *img, t_player *ply, int i);
+void	checkwall_n(t_info *img, t_player *ply, int i, t_image *im);
+void	checkwall_s(t_info *img, t_player *ply, int i, t_image *im);
 void	set_walls(t_image *img, double pixelX, double pixelY, double angle);
 void	pixel_fill_n(t_image *img, int i, int j, int y1);
 void	pixel_fill_e(t_image *img, int i, int j, int y1);

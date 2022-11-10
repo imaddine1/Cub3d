@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:50:30 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/10 11:05:45 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/10 14:27:31 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,15 @@ int	exit_s(void)
 
 void	init_walls(t_image *map)
 {
-	int			i;
-	int			j;
-
 	map->mlx = mlx_init();
-	map->wall_north = mlx_xpm_file_to_image(map->mlx, map->info->no, &i, &j);
-	map->wall_south = mlx_xpm_file_to_image(map->mlx, map->info->so, &i, &j);
-	map->wall_east = mlx_xpm_file_to_image(map->mlx, map->info->ea, &i, &j);
-	map->wall_west = mlx_xpm_file_to_image(map->mlx, map->info->we, &i, &j);
+	map->wall_north = mlx_xpm_file_to_image(map->mlx,
+			map->info->no, &map->w_n, &map->h_n);
+	map->wall_south = mlx_xpm_file_to_image(map->mlx,
+			map->info->so, &map->w_s, &map->h_s);
+	map->wall_east = mlx_xpm_file_to_image(map->mlx,
+			map->info->ea, &map->w_e, &map->h_e);
+	map->wall_west = mlx_xpm_file_to_image(map->mlx,
+			map->info->we, &map->w_w, &map->h_w);
 	if (!map->wall_north || !map->wall_east
 		|| !map->wall_south || !map->wall_west)
 	{

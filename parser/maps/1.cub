@@ -1,22 +1,18 @@
-    NO  ./executer/images/north.xpm
-   
+NO  ./executer/images/north.xpm   
 SO ./executer/images/south.xpm
-       EA   ./executer/images/east.xpm
-         
-        
-
-
-
-    WE         ./executer/images/west.xpm
-
-   C    155   ,  100  ,  160
-   F 111 , 111  ,111
-
-11111111111111111
-10000000000000001
+EA ./executer/images/east.xpm
+WE ./executer/images/west.xpm
+C  155  ,  100    ,  160
+F  111  ,  111  ,   111
+  
+1111111111111111
+10000000000000001  
 101000001000001011
 10000000000000001
-11111111111111111
+11111111111111111    
+        
+            
+11111111111111111    
 10001000100010001
 10000000000000001
 10101010E01010101

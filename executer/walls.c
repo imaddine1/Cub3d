@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:47:26 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/08 11:17:29 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 14:13:51 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ double	calculate_walldistance(t_player *ply, double angle)
 	return (distance * cos(ca));
 }
 
-void	checkwall_n(t_info *img, t_player *ply, int i)
+void	checkwall_n(t_info *img, t_player *ply, int i, t_image *im)
 {
 	if (((int)(ply->wally + 1) % 64) == 0
 		&& img->land[(int)(ply->wally / WALL_DIM) + 1] != '\0'
@@ -51,19 +51,27 @@ void	checkwall_n(t_info *img, t_player *ply, int i)
 				[(int)(ply->wallx / WALL_DIM)] == '0')
 	{
 		ply->wall_direct = 'N';
-		ply->where = ply->wallx;
+		ply->where = (int)round(ply->wallx
+				* ((double)im->w_n / WALL_DIM)) % im->w_n;
 	}
 	else
 	{
-		ply->where = ply->wally;
 		if (i == 0)
+		{
 			ply->wall_direct = 'E';
+			ply->where = (int)round(ply->wally
+					* ((double)im->w_e / WALL_DIM)) % im->w_e;
+		}
 		else
+		{
 			ply->wall_direct = 'W';
+			ply->where = (int)round(ply->wally
+					* ((double)im->w_w / WALL_DIM)) % im->w_w;
+		}
 	}
 }
 
-void	checkwall_s(t_info *img, t_player *ply, int i)
+void	checkwall_s(t_info *img, t_player *ply, int i, t_image *im)
 {
 	if (((int)(ply->wally) % 64) == 0
 		&& (img->land[(int)(ply->wally / WALL_DIM) - 1] != '\0'
@@ -71,15 +79,23 @@ void	checkwall_s(t_info *img, t_player *ply, int i)
 				[(int)(ply->wallx / WALL_DIM)] == '0'))
 	{
 		ply->wall_direct = 'S';
-		ply->where = ply->wallx;
+		ply->where = (int)round(ply->wallx
+				* ((double)im->w_s / WALL_DIM)) % im->w_s;
 	}
 	else
 	{
-		ply->where = ply->wally;
 		if (i == 0)
+		{
 			ply->wall_direct = 'E';
+			ply->where = (int)round(ply->wally
+					* ((double)im->w_e / WALL_DIM)) % im->w_e;
+		}
 		else
+		{
 			ply->wall_direct = 'W';
+			ply->where = (int)round(ply->wally
+					* ((double)im->w_w / WALL_DIM)) % im->w_w;
+		}
 	}
 }
 
@@ -91,15 +107,15 @@ void	set_walls(t_image *img, double pixelX, double pixelY, double angle)
 	if (img->player->posy > img->player->wally)
 	{
 		if (img->player->posx <= img->player->wallx)
-			checkwall_n(img->info, img->player, 0);
+			checkwall_n(img->info, img->player, 0, img);
 		else if (img->player->posx > img->player->wallx)
-			checkwall_n(img->info, img->player, 1);
+			checkwall_n(img->info, img->player, 1, img);
 	}
 	else
 	{
 		if (img->player->posx < img->player->wallx)
-			checkwall_s(img->info, img->player, 0);
+			checkwall_s(img->info, img->player, 0, img);
 		else if (img->player->posx >= img->player->wallx)
-			checkwall_s(img->info, img->player, 1);
+			checkwall_s(img->info, img->player, 1, img);
 	}
 }
