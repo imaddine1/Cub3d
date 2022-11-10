@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/09 17:03:04 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:17:03 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int ac, char **av)
 {
 	int		fd;
 	t_info	*map;
-	//t_image	*img;
+	t_image	*img;
 
 	if (ac != 2)
 		msg_exit("\033[0;32mput the map as aregement!!\033[0m;");
@@ -108,14 +108,14 @@ int	main(int ac, char **av)
 	printf ("land:\n");
 	while (map->land[++j])
 		printf (">%s<\n", map->land[j]);
-	//img = malloc(sizeof(t_image));
-	//if (!img)
-	//	return (0);
+	img = malloc(sizeof(t_image));
+	if (!img)
+		return (0);
 	//img = NULL;
-	//img->info = map;
-	//execute(img);
+	img->info = map;
+	execute(img);
 	free_struct(map);
-	//free_struct2(img);
+	free_struct2(img);
 	system ("leaks cub3D");
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:50:30 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/09 17:01:39 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:18:46 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_test(int key, t_image *img)
 		move_right(img);
 	if (key == 53)
 	{
-		system("leaks cub3D");
+		//system("leaks cub3D");
 		exit(0);
 	}
 	ft_init_img(img);

@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/08 15:34:10 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/10 09:36:17 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ void	execute(t_image *map)
 {
 	map->image = malloc(sizeof(t_data));
 	map->player = malloc(sizeof(t_player));
+	if (!map->image || !map->player)
+		return ;
 	init_walls(map);
 	ft_getpos_player(map->info, map);
 	map->win = mlx_new_window(map->mlx, WIN_W, WIN_H, "Cub3d");
