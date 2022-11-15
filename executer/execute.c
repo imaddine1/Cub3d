@@ -6,12 +6,25 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/10 12:50:16 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:46:23 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
+void	set_dir(t_image *img, double x, double y)
+{
+	if (wallcheck(x - img->player->stepx, y, img))
+	{
+		img->player->line = 'x';
+		return ;
+	}
+	else if (wallcheck(x, y - img->player->stepy, img))
+	{
+		img->player->line = 'y';
+		return ;
+	}
+}
 int	draw_line(t_image *img, double beginX, double beginY, double angle)
 {
 	double	pixelx;
@@ -25,6 +38,7 @@ int	draw_line(t_image *img, double beginX, double beginY, double angle)
 	{
 		if (wallcheck(pixelx, pixely, img))
 		{
+			set_dir(img, pixelx, pixely);
 			set_walls(img, pixelx, pixely, angle);
 			break ;
 		}
@@ -106,6 +120,8 @@ void	ft_getpos_player(t_info *map, t_image *img)
 				map->land[i][j] = '0';
 				img->player->posx = j * WALL_DIM;
 				img->player->posy = i * WALL_DIM;
+				img->player->posx += 32;
+				img->player->posy += 37;
 				check_rotation(map, img->player);
 			}
 			j++;

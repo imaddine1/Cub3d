@@ -6,7 +6,11 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2022/11/15 18:29:47 by zouazahr         ###   ########.fr       */
+=======
 /*   Updated: 2022/11/10 14:53:33 by iharile          ###   ########.fr       */
+>>>>>>> 49b491b3a64a0dd52d9ddca3a54b4ce497346a1e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +23,10 @@
 # include <sys/uio.h>
 # include <math.h>
 # include <mlx.h>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 49b491b3a64a0dd52d9ddca3a54b4ce497346a1e
 # define FIELD_OF_VIEW 60;
 # define PLAYER_HEIGHT 32;
 # define WIN_H 1080.0
@@ -60,6 +68,7 @@ typedef struct player
 	int			where;
 	double		stepx;
 	double		stepy;
+	char		line;
 }	t_player;
 
 typedef struct s_data {
@@ -168,8 +177,8 @@ void	move_front(t_image *ply);
 void	check_rotation(t_info *map, t_player *player);
 int		check_ray(t_image *img, int pixelX, int pixelY);
 double	calculate_walldistance(t_player *ply, double angle);
-void	checkwall_n(t_info *img, t_player *ply, int i, t_image *im);
-void	checkwall_s(t_info *img, t_player *ply, int i, t_image *im);
+void	checkwall_n(t_player *ply, int i, t_image *im);
+void	checkwall_s(t_player *ply, int i, t_image *im);
 void	set_walls(t_image *img, double pixelX, double pixelY, double angle);
 void	pixel_fill_n(t_image *img, int i, int j, int y1);
 void	pixel_fill_e(t_image *img, int i, int j, int y1);

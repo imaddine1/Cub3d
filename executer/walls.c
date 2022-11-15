@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:47:26 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/10 14:13:51 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:29:17 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,9 @@ double	calculate_walldistance(t_player *ply, double angle)
 	return (distance * cos(ca));
 }
 
-void	checkwall_n(t_info *img, t_player *ply, int i, t_image *im)
+void	checkwall_n(t_player *ply, int i, t_image *im)
 {
-	if (((int)(ply->wally + 1) % 64) == 0
-		&& img->land[(int)(ply->wally / WALL_DIM) + 1] != '\0'
-				&& img->land[(int)(ply->wally / WALL_DIM) + 1]
-				[(int)(ply->wallx / WALL_DIM)] == '0')
+	if (ply->line == 'x')
 	{
 		ply->wall_direct = 'N';
 		ply->where = (int)round(ply->wallx
@@ -71,12 +68,9 @@ void	checkwall_n(t_info *img, t_player *ply, int i, t_image *im)
 	}
 }
 
-void	checkwall_s(t_info *img, t_player *ply, int i, t_image *im)
+void	checkwall_s(t_player *ply, int i, t_image *im)
 {
-	if (((int)(ply->wally) % 64) == 0
-		&& (img->land[(int)(ply->wally / WALL_DIM) - 1] != '\0'
-		&& img->land[(int)(ply->wally / WALL_DIM) - 1]
-				[(int)(ply->wallx / WALL_DIM)] == '0'))
+	if (ply->line == 'x')
 	{
 		ply->wall_direct = 'S';
 		ply->where = (int)round(ply->wallx
@@ -106,16 +100,16 @@ void	set_walls(t_image *img, double pixelX, double pixelY, double angle)
 	img->player->wall_distance = calculate_walldistance(img->player, angle);
 	if (img->player->posy > img->player->wally)
 	{
-		if (img->player->posx <= img->player->wallx)
-			checkwall_n(img->info, img->player, 0, img);
+		if (img->player->posx < img->player->wallx)
+			checkwall_n(img->player, 0, img);
 		else if (img->player->posx > img->player->wallx)
-			checkwall_n(img->info, img->player, 1, img);
+			checkwall_n(img->player, 1, img);
 	}
 	else
 	{
 		if (img->player->posx < img->player->wallx)
-			checkwall_s(img->info, img->player, 0, img);
+			checkwall_s(img->player, 0, img);
 		else if (img->player->posx >= img->player->wallx)
-			checkwall_s(img->info, img->player, 1, img);
+			checkwall_s(img->player, 1, img);
 	}
 }

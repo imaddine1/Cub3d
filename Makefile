@@ -6,7 +6,7 @@
 #    By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 14:12:07 by iharile           #+#    #+#              #
-#    Updated: 2022/11/10 13:15:42 by zouazahr         ###   ########.fr        #
+#    Updated: 2022/11/15 14:43:08 by zouazahr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ EXEC = ""
 p = parser
 e = executer
 NAME = cub3D
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 MLX = -lmlx -framework OpenGl -framework AppKit
 SRC = main.c $(p)/files_error.c $(p)/valid_map.c $(p)/my_atoi.c \
 	$(p)/handle_objects.c $(p)/free.c $(p)/norm1.c $(p)/counter.c $(p)/land_content.c\
