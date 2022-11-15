@@ -6,11 +6,7 @@
 /*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/11/15 18:29:47 by zouazahr         ###   ########.fr       */
-=======
-/*   Updated: 2022/11/10 14:53:33 by iharile          ###   ########.fr       */
->>>>>>> 49b491b3a64a0dd52d9ddca3a54b4ce497346a1e
+/*   Updated: 2022/11/15 20:48:24 by iharile          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +19,6 @@
 # include <sys/uio.h>
 # include <math.h>
 # include <mlx.h>
-<<<<<<< HEAD
-
-=======
->>>>>>> 49b491b3a64a0dd52d9ddca3a54b4ce497346a1e
 # define FIELD_OF_VIEW 60;
 # define PLAYER_HEIGHT 32;
 # define WIN_H 1080.0
