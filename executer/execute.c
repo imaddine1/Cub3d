@@ -6,25 +6,12 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/15 18:46:23 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:56:37 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/header.h"
 
-void	set_dir(t_image *img, double x, double y)
-{
-	if (wallcheck(x - img->player->stepx, y, img))
-	{
-		img->player->line = 'x';
-		return ;
-	}
-	else if (wallcheck(x, y - img->player->stepy, img))
-	{
-		img->player->line = 'y';
-		return ;
-	}
-}
 int	draw_line(t_image *img, double beginX, double beginY, double angle)
 {
 	double	pixelx;
@@ -130,13 +117,13 @@ void	ft_getpos_player(t_info *map, t_image *img)
 	}
 }
 
-void	execute(t_image *map)
+void	execute(t_image *map, t_info *inf)
 {
 	map->image = malloc(sizeof(t_data));
 	map->player = malloc(sizeof(t_player));
 	if (!map->image || !map->player)
 		return ;
-	init_walls(map);
+	init_walls(map, inf);
 	ft_getpos_player(map->info, map);
 	map->win = mlx_new_window(map->mlx, WIN_W, WIN_H, "Cub3d");
 	map->map = ft_strdupc(map->info->land);

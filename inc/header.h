@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:37:21 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/15 20:48:24 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/16 17:57:30 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,13 +181,14 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	**ft_strdupc(char **env);
 int		ft_test(int key, t_image *img);
 int		exit_s(void);
-void	init_walls(t_image *map);
+void	init_walls(t_image *map, t_info *inf);
 void	rotate_left(t_player *player);
 void	rotate_right(t_player *player);
 int		draw_line(t_image *img, double beginX, double beginY, double angle);
 void	turnto3d(t_image *img, int j);
 void	ft_init_img(t_image *ply);
 void	ft_getpos_player(t_info *map, t_image *img);
-void	execute(t_image *map);
+void	execute(t_image *map, t_info *inf);
 int		wallcheck(double x, double y, t_image *img);
+void	set_dir(t_image *img, double x, double y);
 #endif

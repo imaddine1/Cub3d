@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:53:00 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/15 17:39:19 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:57:19 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,18 @@ int	wallcheck(double x, double y, t_image *img)
 			[((int)x - (int)round(img->player->stepx)) / (int)WALL_DIM] == '1')
 		return (1);
 	return (0);
+}
+
+void	set_dir(t_image *img, double x, double y)
+{
+	if (wallcheck(x - img->player->stepx, y, img))
+	{
+		img->player->line = 'x';
+		return ;
+	}
+	else if (wallcheck(x, y - img->player->stepy, img))
+	{
+		img->player->line = 'y';
+		return ;
+	}
 }

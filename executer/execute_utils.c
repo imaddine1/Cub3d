@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:50:30 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/10 14:27:31 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/16 18:00:17 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	exit_s(void)
 	exit(0);
 }
 
-void	init_walls(t_image *map)
+void	init_walls(t_image *map, t_info *inf)
 {
 	map->mlx = mlx_init();
 	map->wall_north = mlx_xpm_file_to_image(map->mlx,
@@ -90,8 +90,7 @@ void	init_walls(t_image *map)
 		|| !map->wall_south || !map->wall_west)
 	{
 		printf("ERROR! PLEASE CHECK YOUR TEXTURES\n");
-		free_struct(map->info);
-		free_struct2(map);
+		free_struct(inf);
 		exit (0);
 	}
 	map->image->addr_north = mlx_get_data_addr(map->wall_north,

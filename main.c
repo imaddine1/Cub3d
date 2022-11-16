@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iharile <iharile@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 12:29:44 by iharile           #+#    #+#             */
-/*   Updated: 2022/11/10 11:04:48 by iharile          ###   ########.fr       */
+/*   Updated: 2022/11/16 17:56:00 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,20 @@ void	free_struct2(t_image *map)
 {
 	if (map->map != NULL)
 		ft_free(map->map);
-	if (map->info != NULL)
-		free(map->info);
+	if (map->mlx != NULL)
+		free(map->mlx);
+	if (map->wall_north != NULL)
+		free(map->wall_north);
+	if (map->wall_south != NULL)
+		free(map->wall_south);
+	if (map->wall_east != NULL)
+		free(map->wall_east);
+	if (map->wall_west != NULL)
+		free(map->wall_west);
 	if (map->player != NULL)
 		free(map->player);
 	if (map->image != NULL)
-		free(map->player);
+		free(map->image);
 	free(map);
 }
 
@@ -93,7 +101,7 @@ int	main(int ac, char **av)
 	if (!img)
 		return (0);
 	img->info = map;
-	execute(img);
+	execute(img, map);
 	free_struct(map);
 	free_struct2(img);
 	return (0);
