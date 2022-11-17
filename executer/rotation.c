@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 11:53:00 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/16 17:57:19 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:44:39 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	rotate_right(t_player *player)
 void	check_rotation(t_info *map, t_player *player)
 {
 	if (map->direction == 'N')
-		player->rotation = M_PI / 2;
-	else if (map->direction == 'S')
 		player->rotation = (3 * M_PI) / 2;
+	else if (map->direction == 'S')
+		player->rotation = M_PI / 2;
 	else if (map->direction == 'W')
 		player->rotation = M_PI;
 	else

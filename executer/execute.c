@@ -6,7 +6,7 @@
 /*   By: zouazahr <zouazahr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:31:24 by zouazahr          #+#    #+#             */
-/*   Updated: 2022/11/16 17:56:37 by zouazahr         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:20:38 by zouazahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	ft_init_img(t_image *ply)
 	double	angle;
 
 	x = 0;
-	ply->image->img = mlx_new_image(ply->mlx, WIN_W, WIN_H);
-	ply->image->addr = mlx_get_data_addr(ply->image->img, &ply->image->bpp,
-			&ply->image->length, &ply->image->endian);
 	angle = (ply->player->rotation - (M_PI / 6));
 	if (angle > (2 * M_PI))
 		angle -= (2 * M_PI);
@@ -124,6 +121,9 @@ void	execute(t_image *map, t_info *inf)
 	if (!map->image || !map->player)
 		return ;
 	init_walls(map, inf);
+	map->image->img = mlx_new_image(map->mlx, WIN_W, WIN_H);
+	map->image->addr = mlx_get_data_addr(map->image->img, &map->image->bpp,
+			&map->image->length, &map->image->endian);
 	ft_getpos_player(map->info, map);
 	map->win = mlx_new_window(map->mlx, WIN_W, WIN_H, "Cub3d");
 	map->map = ft_strdupc(map->info->land);
